@@ -1,3 +1,3 @@
-# Weather Flutter Application⛅
+# Weather Flutter Application ⛅
 
 A new Flutter project.
