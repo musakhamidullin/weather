@@ -2,6 +2,7 @@ part of 'weather_bloc.dart';
 
 enum WeatherStatus{
   initial,
+  searching,
   loading,
   success,
   failure,
@@ -15,7 +16,7 @@ class WeatherState with _$WeatherState{
     @Default(WeatherStatus.initial)
     WeatherStatus status,
     IconData? icon,
-    
+    String? name,
     WeatherDataModel? data
   }) = _WeatherState;
 }

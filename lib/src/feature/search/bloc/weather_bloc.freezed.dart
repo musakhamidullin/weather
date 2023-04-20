@@ -19,6 +19,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -27,6 +28,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -35,6 +37,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -44,6 +47,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
     required TResult Function(_FindPlace value) findPlace,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Refresh value) refresh,
@@ -52,6 +56,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
     TResult? Function(_FindPlace value)? findPlace,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Refresh value)? refresh,
@@ -60,6 +65,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
     TResult Function(_FindPlace value)? findPlace,
     TResult Function(_Failure value)? failure,
     TResult Function(_Refresh value)? refresh,
@@ -123,6 +129,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -134,6 +141,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -145,6 +153,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -160,6 +169,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
     required TResult Function(_FindPlace value) findPlace,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Refresh value) refresh,
@@ -171,6 +181,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
     TResult? Function(_FindPlace value)? findPlace,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Refresh value)? refresh,
@@ -182,6 +193,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
     TResult Function(_FindPlace value)? findPlace,
     TResult Function(_Failure value)? failure,
     TResult Function(_Refresh value)? refresh,
@@ -196,6 +208,168 @@ class _$_Load implements _Load {
 
 abstract class _Load implements WeatherEvent {
   const factory _Load() = _$_Load;
+}
+
+/// @nodoc
+abstract class _$$_OutPutToScreenCopyWith<$Res> {
+  factory _$$_OutPutToScreenCopyWith(
+          _$_OutPutToScreen value, $Res Function(_$_OutPutToScreen) then) =
+      __$$_OutPutToScreenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value, String name});
+}
+
+/// @nodoc
+class __$$_OutPutToScreenCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$_OutPutToScreen>
+    implements _$$_OutPutToScreenCopyWith<$Res> {
+  __$$_OutPutToScreenCopyWithImpl(
+      _$_OutPutToScreen _value, $Res Function(_$_OutPutToScreen) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+    Object? name = null,
+  }) {
+    return _then(_$_OutPutToScreen(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OutPutToScreen implements _OutPutToScreen {
+  const _$_OutPutToScreen({required this.value, required this.name});
+
+  @override
+  final String value;
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'WeatherEvent.outPutToScreen(value: $value, name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OutPutToScreen &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OutPutToScreenCopyWith<_$_OutPutToScreen> get copyWith =>
+      __$$_OutPutToScreenCopyWithImpl<_$_OutPutToScreen>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String value) findPlace,
+    required TResult Function() failure,
+    required TResult Function() refresh,
+  }) {
+    return outPutToScreen(value, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String value)? findPlace,
+    TResult? Function()? failure,
+    TResult? Function()? refresh,
+  }) {
+    return outPutToScreen?.call(value, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String value)? findPlace,
+    TResult Function()? failure,
+    TResult Function()? refresh,
+    required TResult orElse(),
+  }) {
+    if (outPutToScreen != null) {
+      return outPutToScreen(value, name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
+    required TResult Function(_FindPlace value) findPlace,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_Refresh value) refresh,
+  }) {
+    return outPutToScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
+    TResult? Function(_FindPlace value)? findPlace,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Refresh value)? refresh,
+  }) {
+    return outPutToScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
+    TResult Function(_FindPlace value)? findPlace,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_Refresh value)? refresh,
+    required TResult orElse(),
+  }) {
+    if (outPutToScreen != null) {
+      return outPutToScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OutPutToScreen implements WeatherEvent {
+  const factory _OutPutToScreen(
+      {required final String value,
+      required final String name}) = _$_OutPutToScreen;
+
+  String get value;
+  String get name;
+  @JsonKey(ignore: true)
+  _$$_OutPutToScreenCopyWith<_$_OutPutToScreen> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -263,6 +437,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -274,6 +449,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -285,6 +461,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -300,6 +477,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
     required TResult Function(_FindPlace value) findPlace,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Refresh value) refresh,
@@ -311,6 +489,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
     TResult? Function(_FindPlace value)? findPlace,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Refresh value)? refresh,
@@ -322,6 +501,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
     TResult Function(_FindPlace value)? findPlace,
     TResult Function(_Failure value)? failure,
     TResult Function(_Refresh value)? refresh,
@@ -381,6 +561,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -392,6 +573,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -403,6 +585,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -418,6 +601,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
     required TResult Function(_FindPlace value) findPlace,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Refresh value) refresh,
@@ -429,6 +613,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
     TResult? Function(_FindPlace value)? findPlace,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Refresh value)? refresh,
@@ -440,6 +625,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
     TResult Function(_FindPlace value)? findPlace,
     TResult Function(_Failure value)? failure,
     TResult Function(_Refresh value)? refresh,
@@ -494,6 +680,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String value, String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -505,6 +692,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String value, String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -516,6 +704,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String value, String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -531,6 +720,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Load value) load,
+    required TResult Function(_OutPutToScreen value) outPutToScreen,
     required TResult Function(_FindPlace value) findPlace,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Refresh value) refresh,
@@ -542,6 +732,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Load value)? load,
+    TResult? Function(_OutPutToScreen value)? outPutToScreen,
     TResult? Function(_FindPlace value)? findPlace,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Refresh value)? refresh,
@@ -553,6 +744,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Load value)? load,
+    TResult Function(_OutPutToScreen value)? outPutToScreen,
     TResult Function(_FindPlace value)? findPlace,
     TResult Function(_Failure value)? failure,
     TResult Function(_Refresh value)? refresh,
@@ -573,6 +765,7 @@ abstract class _Refresh implements WeatherEvent {
 mixin _$WeatherState {
   WeatherStatus get status => throw _privateConstructorUsedError;
   IconData? get icon => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   WeatherDataModel? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -586,7 +779,11 @@ abstract class $WeatherStateCopyWith<$Res> {
           WeatherState value, $Res Function(WeatherState) then) =
       _$WeatherStateCopyWithImpl<$Res, WeatherState>;
   @useResult
-  $Res call({WeatherStatus status, IconData? icon, WeatherDataModel? data});
+  $Res call(
+      {WeatherStatus status,
+      IconData? icon,
+      String? name,
+      WeatherDataModel? data});
 
   $WeatherDataModelCopyWith<$Res>? get data;
 }
@@ -606,6 +803,7 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
   $Res call({
     Object? status = null,
     Object? icon = freezed,
+    Object? name = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
@@ -617,6 +815,10 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as IconData?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -645,7 +847,11 @@ abstract class _$$_WeatherStateCopyWith<$Res>
       __$$_WeatherStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({WeatherStatus status, IconData? icon, WeatherDataModel? data});
+  $Res call(
+      {WeatherStatus status,
+      IconData? icon,
+      String? name,
+      WeatherDataModel? data});
 
   @override
   $WeatherDataModelCopyWith<$Res>? get data;
@@ -664,6 +870,7 @@ class __$$_WeatherStateCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? icon = freezed,
+    Object? name = freezed,
     Object? data = freezed,
   }) {
     return _then(_$_WeatherState(
@@ -675,6 +882,10 @@ class __$$_WeatherStateCopyWithImpl<$Res>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as IconData?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -687,7 +898,7 @@ class __$$_WeatherStateCopyWithImpl<$Res>
 
 class _$_WeatherState implements _WeatherState {
   const _$_WeatherState(
-      {this.status = WeatherStatus.initial, this.icon, this.data});
+      {this.status = WeatherStatus.initial, this.icon, this.name, this.data});
 
   @override
   @JsonKey()
@@ -695,11 +906,13 @@ class _$_WeatherState implements _WeatherState {
   @override
   final IconData? icon;
   @override
+  final String? name;
+  @override
   final WeatherDataModel? data;
 
   @override
   String toString() {
-    return 'WeatherState(status: $status, icon: $icon, data: $data)';
+    return 'WeatherState(status: $status, icon: $icon, name: $name, data: $data)';
   }
 
   @override
@@ -709,11 +922,12 @@ class _$_WeatherState implements _WeatherState {
             other is _$_WeatherState &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, icon, data);
+  int get hashCode => Object.hash(runtimeType, status, icon, name, data);
 
   @JsonKey(ignore: true)
   @override
@@ -726,12 +940,15 @@ abstract class _WeatherState implements WeatherState {
   const factory _WeatherState(
       {final WeatherStatus status,
       final IconData? icon,
+      final String? name,
       final WeatherDataModel? data}) = _$_WeatherState;
 
   @override
   WeatherStatus get status;
   @override
   IconData? get icon;
+  @override
+  String? get name;
   @override
   WeatherDataModel? get data;
   @override

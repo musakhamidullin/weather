@@ -30,9 +30,15 @@ class SearchWidget extends StatelessWidget {
               padding: const EdgeInsets.only(
                   right: Config.padding, top: Config.padding / 8),
               child: TextField(
-                onSubmitted: (value) => context
+                onChanged: (value) => context
                     .read<WeatherBloc>()
-                    .add(WeatherEvent.findPlace(value: value)),
+                    .add(WeatherEvent.outPutToScreen(value: value, name: textEditingController.text)),
+                onSubmitted:
+                (value) => value.isNotEmpty ?
+                 context
+                    .read<WeatherBloc>()
+                    .add(WeatherEvent.findPlace(value: value)) 
+                    : null,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.zero,

@@ -15,9 +15,7 @@ class LoadingWidget extends StatelessWidget {
             color: Colors.white38,
           ),
           SizedBox(height: Config.padding * 2,),
-          Text('Find a local weather ⛅', style: TextStyle(
-          
-          ), )
+          Text('Find a local weather ⛅')
         ],
       ),
     );

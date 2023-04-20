@@ -15,6 +15,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   WeatherBloc({required this.repository}) : super(WeatherState()) {
     on<_FindPlace>(_findPlace);
+    on<_OutPutToScreen>(_outPutToScreen);
   }
 
   FutureOr<void> _findPlace(
@@ -23,11 +24,14 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     try {
       final weather = await repository.getWeather(value: event.value);
 
-      if (weather?.cod != 200 || weather == null) throw Exception();
-
-      emit(state.copyWith(status: WeatherStatus.success, data: weather));
+      emit(state.copyWith(status: WeatherStatus.success, data: weather, ));
     } catch (e) {
       emit(state.copyWith(status: WeatherStatus.failure));
     }
+  }
+
+  FutureOr<void> _outPutToScreen(
+      _OutPutToScreen event, Emitter<WeatherState> emit) {
+    emit(state.copyWith(name: event.value, status: WeatherStatus.searching));
   }
 }

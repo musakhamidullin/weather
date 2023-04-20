@@ -7,7 +7,6 @@ import 'coord.dart';
 import 'sys.dart';
 import 'wind.dart';
 
-
 part 'weather_data.freezed.dart';
 part 'weather_data.g.dart';
 

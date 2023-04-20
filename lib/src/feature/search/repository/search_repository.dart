@@ -1,12 +1,14 @@
 import 'package:weather/src/core/models/weather_data.dart';
+
 import '../api/api.dart';
 
 class SearchRepository {
-  Future<WeatherDataModel>? getWeather({required String value}) async {
-    final result = await DioApi().get<List<dynamic>>(value);
+  Future<WeatherDataModel> getWeather({required String value}) async {
 
-    if ((result?.cod ?? 0) != 200 || result == null) throw Exception('empty obj');
+    final request = await DioApi().get<List<dynamic>>(value);
 
-    return result;
+    if(request == null) throw Exception();
+
+    return request;
   }
 }

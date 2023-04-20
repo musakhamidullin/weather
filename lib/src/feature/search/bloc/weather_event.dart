@@ -4,6 +4,11 @@ part of 'weather_bloc.dart';
 class WeatherEvent with _$WeatherEvent {
   const factory WeatherEvent.load() = _Load;
 
+  const factory WeatherEvent.outPutToScreen({
+    required String value,
+    required String name,
+  }) = _OutPutToScreen;
+
   const factory WeatherEvent.findPlace({required String value}) = _FindPlace;
 
   const factory WeatherEvent.failure() = _Failure;
