@@ -16,9 +16,7 @@ class DioSearchApi {
     try {
       final response = await _dio.get(Config.searchUrl(value: value));
 
-      if (response.statusCode != 200) throw Exception('error');
-
-      log(WeatherDataModel.fromJson(response.data).toString());
+      if (response.statusCode != 200) throw Exception();
 
       return WeatherDataModel.fromJson(response.data);
     } on DioError catch (e) {
