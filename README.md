@@ -14,7 +14,7 @@ Packages:
   intl: ^0.18.1\
   provider: ^6.0.5\
   build_runner: ^2.3.3\
-  json_serializable: ^6.6.1\
+  json_serializable: ^6.6.1
   
 Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
