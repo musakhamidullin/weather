@@ -15,10 +15,6 @@ class DioForecastApi {
     try {
       final response = await _dio.get(Config.forecastUrl(value: value));
 
-      // if (response.statusCode != 200) throw Exception('error');
-
-      // log(WeatherDataModel.fromJson(response.data).toString());
-
       return WeatherDataForecast.fromJson(response.data);
     } on DioError catch (e) {
       debugPrint(e.toString());
