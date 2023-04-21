@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/models/forecast.dart';
@@ -8,11 +7,7 @@ import '../model/forecast_model.dart';
 
 class ForecastRepository {
   Future<List<Forecast>> getForecast({required String value}) async {
-    final request = await DioForecastApi()
-        .getForecast<List<dynamic>>(value)
-        .onError((error, stackTrace) {
-      debugPrint(error.toString());
-    });
+    final request = await DioForecastApi().getForecast<List<dynamic>>(value);
 
     if (request == null) throw Exception();
 

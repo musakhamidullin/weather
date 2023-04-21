@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:weather/src/core/models/weather_data.dart';
-import 'package:weather/src/feature/forecast/repository/forecast_repository.dart';
 import 'package:weather/src/feature/search/repository/search_repository.dart';
 
 import '../../../core/models/weather_data_forecast.dart';

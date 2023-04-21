@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:weather/src/feature/forecast/repository/forecast_repository.dart';
 import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 import 'package:weather/src/feature/search/repository/search_repository.dart';
 
@@ -28,17 +27,14 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   late final SearchRepository _searchRepository;
-  late final ForecastRepository _forecastRepository;
   late final WeatherBloc _weatherBloc;
 
   @override
   void initState() {
     super.initState();
 
-    _forecastRepository = ForecastRepository();
     _searchRepository = SearchRepository();
-    _weatherBloc = WeatherBloc(
-        searchRepository: _searchRepository);
+    _weatherBloc = WeatherBloc(searchRepository: _searchRepository);
   }
 
   @override

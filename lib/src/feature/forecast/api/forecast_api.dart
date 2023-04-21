@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/config.dart';
-import 'package:weather/src/core/models/weather_data.dart';
 
 import '../../../core/models/weather_data_forecast.dart';
 

@@ -1,14 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grouped_list/grouped_list.dart';
-import 'package:intl/intl.dart';
 import 'package:weather/src/feature/forecast/bloc/forecast_bloc.dart';
 import 'package:weather/src/feature/forecast/repository/forecast_repository.dart';
 import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 
 import '../../../config.dart';
-import '../../core/models/forecast.dart';
 import '../../core/widgets/loading_widget.dart';
 
 class ForecastScreen extends StatefulWidget {
