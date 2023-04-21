@@ -44,7 +44,7 @@ mixin _$WeatherDataModel {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'cod')
+  @JsonKey(ignore: true)
   int? get cod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -72,7 +72,7 @@ abstract class $WeatherDataModelCopyWith<$Res> {
       @JsonKey(name: 'timezone') int? timezone,
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'cod') int? cod});
+      @JsonKey(ignore: true) int? cod});
 
   $CoordCopyWith<$Res>? get coord;
   $MainInfoCopyWith<$Res>? get main;
@@ -246,7 +246,7 @@ abstract class _$$_WeatherDataModelCopyWith<$Res>
       @JsonKey(name: 'timezone') int? timezone,
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'cod') int? cod});
+      @JsonKey(ignore: true) int? cod});
 
   @override
   $CoordCopyWith<$Res>? get coord;
@@ -358,7 +358,7 @@ class _$_WeatherDataModel implements _WeatherDataModel {
       @JsonKey(name: 'timezone') this.timezone,
       @JsonKey(name: 'id') this.id,
       @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'cod') this.cod})
+      @JsonKey(ignore: true) this.cod})
       : _weather = weather;
 
   factory _$_WeatherDataModel.fromJson(Map<String, dynamic> json) =>
@@ -409,7 +409,7 @@ class _$_WeatherDataModel implements _WeatherDataModel {
   @JsonKey(name: 'name')
   final String? name;
   @override
-  @JsonKey(name: 'cod')
+  @JsonKey(ignore: true)
   final int? cod;
 
   @override
@@ -485,7 +485,7 @@ abstract class _WeatherDataModel implements WeatherDataModel {
       @JsonKey(name: 'timezone') final int? timezone,
       @JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'cod') final int? cod}) = _$_WeatherDataModel;
+      @JsonKey(ignore: true) final int? cod}) = _$_WeatherDataModel;
 
   factory _WeatherDataModel.fromJson(Map<String, dynamic> json) =
       _$_WeatherDataModel.fromJson;
@@ -527,7 +527,7 @@ abstract class _WeatherDataModel implements WeatherDataModel {
   @JsonKey(name: 'name')
   String? get name;
   @override
-  @JsonKey(name: 'cod')
+  @JsonKey(ignore: true)
   int? get cod;
   @override
   @JsonKey(ignore: true)

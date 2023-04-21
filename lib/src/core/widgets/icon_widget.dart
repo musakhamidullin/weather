@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
-  const IconWidget({super.key, required this.icon, required this.onTap});
+  const IconWidget({super.key, required this.widget, required this.onTap});
 
-  final IconData icon;
+  final Widget widget;
   final VoidCallback onTap;
 
   final Size _iconSize = const Size(50, 50);
@@ -15,11 +15,7 @@ class IconWidget extends StatelessWidget {
       height: _iconSize.height,
       child: GestureDetector(
         onTap: onTap,
-          child: Icon(
-        icon,
-        size: 28,
-        color: Colors.grey,
-      )),
+        child: widget,),
       decoration: BoxDecoration(
           color: Colors.black26, borderRadius: BorderRadius.circular(16)),
     );

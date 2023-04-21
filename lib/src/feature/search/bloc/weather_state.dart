@@ -1,6 +1,6 @@
 part of 'weather_bloc.dart';
 
-enum WeatherStatus{
+enum WeatherStatus {
   initial,
   searching,
   loading,
@@ -9,14 +9,12 @@ enum WeatherStatus{
   failureSearch
 }
 
-@freezed 
-class WeatherState with _$WeatherState{
-
+@freezed
+class WeatherState with _$WeatherState {
   const factory WeatherState({
-    @Default(WeatherStatus.initial)
-    WeatherStatus status,
-    IconData? icon,
+    @Default(WeatherStatus.initial) WeatherStatus status,
     String? name,
-    WeatherDataModel? data
+    WeatherDataModel? data,
+    WeatherDataForecast? forecast,
   }) = _WeatherState;
 }

@@ -764,9 +764,9 @@ abstract class _Refresh implements WeatherEvent {
 /// @nodoc
 mixin _$WeatherState {
   WeatherStatus get status => throw _privateConstructorUsedError;
-  IconData? get icon => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   WeatherDataModel? get data => throw _privateConstructorUsedError;
+  WeatherDataForecast? get forecast => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherStateCopyWith<WeatherState> get copyWith =>
@@ -781,11 +781,12 @@ abstract class $WeatherStateCopyWith<$Res> {
   @useResult
   $Res call(
       {WeatherStatus status,
-      IconData? icon,
       String? name,
-      WeatherDataModel? data});
+      WeatherDataModel? data,
+      WeatherDataForecast? forecast});
 
   $WeatherDataModelCopyWith<$Res>? get data;
+  $WeatherDataForecastCopyWith<$Res>? get forecast;
 }
 
 /// @nodoc
@@ -802,19 +803,15 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
   @override
   $Res call({
     Object? status = null,
-    Object? icon = freezed,
     Object? name = freezed,
     Object? data = freezed,
+    Object? forecast = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as WeatherStatus,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -823,6 +820,10 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as WeatherDataModel?,
+      forecast: freezed == forecast
+          ? _value.forecast
+          : forecast // ignore: cast_nullable_to_non_nullable
+              as WeatherDataForecast?,
     ) as $Val);
   }
 
@@ -837,6 +838,18 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WeatherDataForecastCopyWith<$Res>? get forecast {
+    if (_value.forecast == null) {
+      return null;
+    }
+
+    return $WeatherDataForecastCopyWith<$Res>(_value.forecast!, (value) {
+      return _then(_value.copyWith(forecast: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -849,12 +862,14 @@ abstract class _$$_WeatherStateCopyWith<$Res>
   @useResult
   $Res call(
       {WeatherStatus status,
-      IconData? icon,
       String? name,
-      WeatherDataModel? data});
+      WeatherDataModel? data,
+      WeatherDataForecast? forecast});
 
   @override
   $WeatherDataModelCopyWith<$Res>? get data;
+  @override
+  $WeatherDataForecastCopyWith<$Res>? get forecast;
 }
 
 /// @nodoc
@@ -869,19 +884,15 @@ class __$$_WeatherStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? icon = freezed,
     Object? name = freezed,
     Object? data = freezed,
+    Object? forecast = freezed,
   }) {
     return _then(_$_WeatherState(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as WeatherStatus,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -890,6 +901,10 @@ class __$$_WeatherStateCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as WeatherDataModel?,
+      forecast: freezed == forecast
+          ? _value.forecast
+          : forecast // ignore: cast_nullable_to_non_nullable
+              as WeatherDataForecast?,
     ));
   }
 }
@@ -898,21 +913,24 @@ class __$$_WeatherStateCopyWithImpl<$Res>
 
 class _$_WeatherState implements _WeatherState {
   const _$_WeatherState(
-      {this.status = WeatherStatus.initial, this.icon, this.name, this.data});
+      {this.status = WeatherStatus.initial,
+      this.name,
+      this.data,
+      this.forecast});
 
   @override
   @JsonKey()
   final WeatherStatus status;
   @override
-  final IconData? icon;
-  @override
   final String? name;
   @override
   final WeatherDataModel? data;
+  @override
+  final WeatherDataForecast? forecast;
 
   @override
   String toString() {
-    return 'WeatherState(status: $status, icon: $icon, name: $name, data: $data)';
+    return 'WeatherState(status: $status, name: $name, data: $data, forecast: $forecast)';
   }
 
   @override
@@ -921,13 +939,14 @@ class _$_WeatherState implements _WeatherState {
         (other.runtimeType == runtimeType &&
             other is _$_WeatherState &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.icon, icon) || other.icon == icon) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.forecast, forecast) ||
+                other.forecast == forecast));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, icon, name, data);
+  int get hashCode => Object.hash(runtimeType, status, name, data, forecast);
 
   @JsonKey(ignore: true)
   @override
@@ -939,18 +958,18 @@ class _$_WeatherState implements _WeatherState {
 abstract class _WeatherState implements WeatherState {
   const factory _WeatherState(
       {final WeatherStatus status,
-      final IconData? icon,
       final String? name,
-      final WeatherDataModel? data}) = _$_WeatherState;
+      final WeatherDataModel? data,
+      final WeatherDataForecast? forecast}) = _$_WeatherState;
 
   @override
   WeatherStatus get status;
   @override
-  IconData? get icon;
-  @override
   String? get name;
   @override
   WeatherDataModel? get data;
+  @override
+  WeatherDataForecast? get forecast;
   @override
   @JsonKey(ignore: true)
   _$$_WeatherStateCopyWith<_$_WeatherState> get copyWith =>

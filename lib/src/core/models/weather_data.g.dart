@@ -32,7 +32,6 @@ _$_WeatherDataModel _$$_WeatherDataModelFromJson(Map<String, dynamic> json) =>
       timezone: json['timezone'] as int?,
       id: json['id'] as int?,
       name: json['name'] as String?,
-      cod: json['cod'] as int?,
     );
 
 Map<String, dynamic> _$$_WeatherDataModelToJson(_$_WeatherDataModel instance) =>
@@ -49,5 +48,4 @@ Map<String, dynamic> _$$_WeatherDataModelToJson(_$_WeatherDataModel instance) =>
       'timezone': instance.timezone,
       'id': instance.id,
       'name': instance.name,
-      'cod': instance.cod,
     };

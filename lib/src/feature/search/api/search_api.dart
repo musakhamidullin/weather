@@ -2,19 +2,19 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/config.dart';
 import 'package:weather/src/core/models/weather_data.dart';
 
-class DioApi {
-  DioApi() {
+class DioSearchApi {
+  DioSearchApi() {
     _dio = Dio();
   }
-
   late final Dio _dio;
 
-  Future<WeatherDataModel?> get<T>(String value) async {
+  Future<WeatherDataModel?> getPlace<T>(String value) async {
 
     try {
-      final response = await _dio.get('https://api.openweathermap.org/data/2.5/weather?q=$value&appid=b0f89ea3da6f0039c5d5b733904697fb');
+      final response = await _dio.get(Config.searchUrl(value: value));
 
       if (response.statusCode != 200) throw Exception('error');
 
