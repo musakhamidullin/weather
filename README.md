@@ -4,18 +4,18 @@ Usage example attached on gif file 😉
 
 Packages: 
   
-  cached_network_image: ^3.2.3
-  connectivity_plus: ^3.0.4
-  dio: ^5.1.1
-  flutter_bloc: ^8.1.2
-  freezed: ^2.3.2
-  freezed_annotation: ^2.2.0
-  hive: ^2.2.3
-  intl: ^0.18.1
-  provider: ^6.0.5
-  
-  build_runner: ^2.3.3
-  json_serializable: ^6.6.1
+  cached_network_image: ^3.2.3__
+  connectivity_plus: ^3.0.4__
+  dio: ^5.1.1__
+  flutter_bloc: ^8.1.2__
+  freezed: ^2.3.2__
+  freezed_annotation: ^2.2.0__
+  hive: ^2.2.3__
+  intl: ^0.18.1__
+  provider: ^6.0.5__
+  __
+  build_runner: ^2.3.3__
+  json_serializable: ^6.6.1__
   
 Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
