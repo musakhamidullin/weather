@@ -42,19 +42,22 @@ class ForecastRepository {
     double min = 0;
     double max = 0;
 
-    for (var element in keys) {
+    for (int j = 0; j < keys.length; j++) {
+      var element = keys[j];
       final weatherList = map[element];
 
-      min = weatherList![0].main!.tempMin!;
-      max = weatherList[0].main!.tempMin!;
+        min = weatherList![0].main!.tempMin!;
+        max = weatherList[0].main!.tempMin!;
 
-      for (var i = 0; i < list.length; i++) {
-        if (min > weatherList[i].main!.tempMin!) {
-          min = weatherList[i].main!.tempMin!;
+
+      for (var w = 0; w < weatherList.length; w++) {
+      
+        if (min > weatherList[w].main!.tempMin!) {
+          min = weatherList[w].main!.tempMin!;
         }
 
-        if (max < weatherList[i].main!.tempMax!) {
-          max = weatherList[i].main!.tempMax!;
+        if (max < weatherList[w].main!.tempMax!) {
+          max = weatherList[w].main!.tempMax!;
         }
       }
 
