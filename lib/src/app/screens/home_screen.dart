@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/src/app/screens/weather_details_screen.dart';
 import 'package:weather/src/core/route/router.dart';
 import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 

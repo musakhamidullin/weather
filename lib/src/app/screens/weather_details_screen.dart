@@ -1,9 +1,7 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weather/src/app/screens/forecast_screen.dart';
 import 'package:weather/src/core/models/weather_data.dart';
 import 'package:weather/src/core/route/router.dart';
 
