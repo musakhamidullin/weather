@@ -1,34 +1,29 @@
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/src/app/screens/forecast_screen.dart';
 import 'package:weather/src/core/models/weather_data.dart';
-import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
+import 'package:weather/src/core/route/router.dart';
 
 import '../../../config.dart';
 
-class WeatherDetails extends StatefulWidget {
-  const WeatherDetails({super.key});
+@RoutePage()
+class WeatherDetailsScreen extends StatefulWidget {
+  const WeatherDetailsScreen({super.key, required this.weatherDataModel});
+
+  final WeatherDataModel? weatherDataModel;
 
   @override
-  State<WeatherDetails> createState() => _WeatherDetailsState();
+  State<WeatherDetailsScreen> createState() => _WeatherDetailsScreenState();
 }
 
-class _WeatherDetailsState extends State<WeatherDetails> {
+class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
   final _now = DateTime.now();
   late Size _size;
 
-  late final WeatherDataModel? _weatherDataModel;
-
   double _opacity = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    
-    _weatherDataModel = context.read<WeatherBloc>().state.data;
-  }
 
   @override
   void didChangeDependencies() {
@@ -36,7 +31,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
 
     _size = MediaQuery.of(context).size;
 
-    Future.delayed(const Duration(milliseconds: 250)).then((value){
+    Future.delayed(const Duration(milliseconds: 250)).then((value) {
       setState(() {
         _opacity = 1;
       });
@@ -50,8 +45,8 @@ class _WeatherDetailsState extends State<WeatherDetails> {
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ForecastScreen(namePlace: _weatherDataModel?.name ?? '',)));
+                context.router.push(ForecastRoute(
+                    namePlace: widget.weatherDataModel?.name ?? ''));
               },
               child: Text(
                 'Forecast',
@@ -59,7 +54,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
               ))
         ],
         centerTitle: true,
-        title: Text(_weatherDataModel!.name ?? ''),
+        title: Text(widget.weatherDataModel!.name ?? ''),
       ),
       body: AnimatedOpacity(
         opacity: _opacity,
@@ -84,7 +79,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
                     ),
                     TextSpan(
                       text:
-                          '\n${_weatherDataModel!.name}, ${_weatherDataModel!.sys?.country ?? ''}',
+                          '\n${widget.weatherDataModel!.name}, ${widget.weatherDataModel!.sys?.country ?? ''}',
                       style: TextStyle(fontSize: Config.bigSize),
                     ),
                   ])),
@@ -100,8 +95,9 @@ class _WeatherDetailsState extends State<WeatherDetails> {
                                 Config.smallBorderRadius)),
                         child: CachedNetworkImage(
                           imageUrl: Config.getIcon(
-                              value:
-                                  _weatherDataModel!.weather?.first.icon ?? ''),
+                              value: widget
+                                      .weatherDataModel!.weather?.first.icon ??
+                                  ''),
                           placeholder: (context, url) =>
                               CircularProgressIndicator(
                             color: Config.textColor,
@@ -114,7 +110,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
                         width: Config.padding,
                       ),
                       Text(
-                        '${_weatherDataModel!.main?.temp?.toStringAsFixed(0) ?? 0} °C',
+                        '${widget.weatherDataModel!.main?.temp?.toStringAsFixed(0) ?? 0} °C',
                         style: TextStyle(fontSize: Config.bigSize),
                       ),
                     ],
@@ -125,7 +121,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
                   SizedBox(
                     width: double.infinity,
                     child: Text(
-                      'Feels like ${_weatherDataModel!.main?.feelsLike?.toStringAsFixed(0) ?? 0} °C, ${_weatherDataModel!.weather?.first.description}, ${_weatherDataModel!.weather?.first.main}',
+                      'Feels like ${widget.weatherDataModel!.main?.feelsLike?.toStringAsFixed(0) ?? 0} °C, ${widget.weatherDataModel!.weather?.first.description}, ${widget.weatherDataModel!.weather?.first.main}',
                       style: TextStyle(
                           fontSize: Config.normalSize,
                           fontWeight: FontWeight.bold),
@@ -146,7 +142,7 @@ class _WeatherDetailsState extends State<WeatherDetails> {
                       ),
                       SizedBox(
                         child: Text(
-                          'Humidity ${(_weatherDataModel!.main?.humidity ?? 0 * 100).toStringAsFixed(0)}%\nPressure ${_weatherDataModel!.main?.pressure ?? 0}hPa\nWind speed ${_weatherDataModel!.wind?.speed ?? 0}m/s',
+                          'Humidity ${(widget.weatherDataModel!.main?.humidity ?? 0 * 100).toStringAsFixed(0)}%\nPressure ${widget.weatherDataModel!.main?.pressure ?? 0}hPa\nWind speed ${widget.weatherDataModel!.wind?.speed ?? 0}m/s',
                           style: TextStyle(
                               fontSize: Config.normalSize, height: 1.5),
                         ),

@@ -22,7 +22,8 @@ class ForecastBloc extends Bloc<ForecastEvent, ForecastState> {
       _GetForecast event, Emitter<ForecastState> emit) async {
     emit(state.copyWith(status: WeatherStatus.loading));
     try {
-      final request = await forecastRepository.getForecast(value: event.namePlace);
+      final request =
+          await forecastRepository.getForecast(value: event.namePlace);
 
       emit(state.copyWith(data: request, status: WeatherStatus.success));
     } catch (e) {

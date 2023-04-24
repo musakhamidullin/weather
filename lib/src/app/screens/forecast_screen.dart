@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 import '../../../config.dart';
 import '../../core/widgets/loading_widget.dart';
 
+@RoutePage() 
 class ForecastScreen extends StatefulWidget {
   const ForecastScreen({super.key, required this.namePlace});
 

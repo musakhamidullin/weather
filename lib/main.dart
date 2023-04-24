@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:weather/src/core/route/router.dart';
 import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 import 'package:weather/src/feature/search/repository/search_repository.dart';
 
@@ -29,6 +31,8 @@ class _MainAppState extends State<MainApp> {
   late final SearchRepository _searchRepository;
   late final WeatherBloc _weatherBloc;
 
+  final _router = AppRouter();
+
   @override
   void initState() {
     super.initState();
@@ -41,9 +45,9 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return Provider<WeatherBloc>(
       create: (_) => _weatherBloc,
-      child: MaterialApp(
+      child: MaterialApp.router(
         theme: ThemeData.dark(),
-        home: HomeScreen(),
+        routerConfig: _router.config(),
       ),
     );
   }

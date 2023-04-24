@@ -46,12 +46,10 @@ class ForecastRepository {
       var element = keys[j];
       final weatherList = map[element];
 
-        min = weatherList![0].main!.tempMin!;
-        max = weatherList[0].main!.tempMin!;
-
+      min = weatherList![0].main!.tempMin!;
+      max = weatherList[0].main!.tempMin!;
 
       for (var w = 0; w < weatherList.length; w++) {
-      
         if (min > weatherList[w].main!.tempMin!) {
           min = weatherList[w].main!.tempMin!;
         }
