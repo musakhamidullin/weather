@@ -43,7 +43,7 @@ class SearchWidget extends StatelessWidget {
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.zero,
                     border: OutlineInputBorder(borderSide: BorderSide.none),
-                    hintText: 'Enter a place...'),
+                    hintText: 'Name of place'),
                 controller: textEditingController,
               ),
             ),

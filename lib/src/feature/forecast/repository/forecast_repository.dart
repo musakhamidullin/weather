@@ -11,18 +11,13 @@ class ForecastRepository {
 
     if (request == null) throw Exception();
 
-    final list = groupBy(obj: request);
+    final list = groupBy(map: mapKeys(obj: request)) ;
 
     return list;
   }
-
-  // this method grouping forecast for each date
-  // example
-  // "Friday, April 21" - ["2023-04-21 18:00:00", "2023-04-21 21:00:00"]
-
-  List<Forecast> groupBy({required WeatherDataForecast obj}) {
+  
+  Map<String, List<ForecastList>> mapKeys({required WeatherDataForecast obj}){
     Map<String, List<ForecastList>> map = {};
-    final List<Forecast> list = [];
     if (obj.list?.isNotEmpty ?? false) {
       for (var i = 0; i < obj.list!.length; i++) {
         final date = DateFormat.MMMMEEEEd()
@@ -35,18 +30,29 @@ class ForecastRepository {
             .toList();
       }
     }
+    return map;
+  }
 
+  
+  // this method grouping forecast for each date
+  // example
+  // "Friday, April 21" - ["2023-04-21 18:00:00", "2023-04-21 21:00:00"]
+
+  List<Forecast> groupBy({required Map<String, List<ForecastList>> map}) {
+    final  List<Forecast> list = [];
     final keys = [...map.keys];
-
+   
     // get max and min values for sort
     double min = 0;
     double max = 0;
 
     for (int j = 0; j < keys.length; j++) {
-      var element = keys[j];
-      final weatherList = map[element];
+      String key = keys[j];
+      final weatherList = map[key];
 
-      min = weatherList![0].main!.tempMin!;
+      if(weatherList == null) throw Exception();
+
+      min = weatherList[0].main!.tempMin!;
       max = weatherList[0].main!.tempMin!;
 
       for (var w = 0; w < weatherList.length; w++) {
@@ -60,7 +66,7 @@ class ForecastRepository {
       }
 
       list.add(Forecast(
-          date: element, list: map[element]!, maxTemp: max, minTemp: min));
+          date: key, list: map[key]!, maxTemp: max, minTemp: min));
     }
 
     // sorting by ascending
