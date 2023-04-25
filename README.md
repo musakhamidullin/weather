@@ -24,4 +24,4 @@ Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 The main architecture principle for this app is KISS: removing abstractions that only exist "because this is best practice".
 
 
-![2023-04-21 23-02-45](https://user-images.githubusercontent.com/94803483/233725319-0af91991-263f-43b8-aee5-3c5309750ce2.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/94803483/234306780-2c3428f1-856e-4dc9-a6d8-e4e384e2885e.gif)
