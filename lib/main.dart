@@ -46,7 +46,9 @@ class _MainAppState extends State<MainApp> {
     return Provider<WeatherBloc>(
       create: (_) => _weatherBloc,
       child: MaterialApp.router(
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark(
+          useMaterial3: true
+        ),
         routerConfig: _router.config(),
       ),
     );

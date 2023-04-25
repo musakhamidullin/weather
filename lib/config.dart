@@ -20,7 +20,7 @@ class Config {
 
 
   // text style
-  static const double normalSize = 16, bigSize = 32;
+  static const double normalSize = 16, preBigSize = 26, bigSize = 32;
   static const Color textColor = Colors.white54;
 
 

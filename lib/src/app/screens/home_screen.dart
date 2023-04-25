@@ -68,37 +68,90 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     bool isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: Visibility(
         visible: _connectionStatus == ConnectivityResult.wifi ||
             _connectionStatus == ConnectivityResult.mobile,
         child: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: Config.padding, horizontal: Config.padding),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SearchWidget(textEditingController: _textController),
-              SizedBox(
-                width: 80,
-                child: IconWidget(
-                  onTap: () {
-                    if (_textController.text.isNotEmpty) {
-                      context.read<WeatherBloc>().add(
-                          WeatherEvent.findPlace(value: _textController.text));
-                    }
-                  },
-                  widget: Center(
-                    child: Text(
-                      'Done!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Config.textColor, fontSize: Config.normalSize),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: Config.padding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Text('Recently',
+                        style: TextStyle(
+                            fontSize: Config.preBigSize,
+                            color: Config.textColor)),
+                    SizedBox(
+                      width: Config.padding / 2,
+                    ),
+                    Icon(
+                      Icons.history,
+                      size: 32,
+                      color: Config.textColor,
+                    ),
+                  ],
+                ),
+                SizedBox(height: Config.padding),
+                SizedBox(
+                  width: double.infinity,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.black45),
+                              padding: MaterialStateProperty.all(
+                                  EdgeInsets.symmetric(
+                                      horizontal: Config.padding * 1.5))),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Moscow',
+                                style: TextStyle(fontSize: Config.normalSize),
+                              ),
+
+                              SizedBox(width: Config.padding / 2,),
+
+                              GestureDetector(child: Icon(Icons.close), onTap: (){},)
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: Config.padding * 1.5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SearchWidget(textEditingController: _textController),
+                    SizedBox(width: Config.padding,),
+                    ElevatedButton(onPressed: (){
+                       if (_textController.text.isNotEmpty) {
+                            context.read<WeatherBloc>().add(
+                                WeatherEvent.findPlace(
+                                    value: _textController.text));
+                          }
+                    }, child: Text('Done'),
+                    
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: Config.padding * 1.5, vertical: Config.padding))
+                    ),)
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
