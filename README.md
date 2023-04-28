@@ -21,7 +21,7 @@ Packages:
   
 Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
-<img src="[/images/output/video1.gif](https://user-images.githubusercontent.com/94803483/235258026-3237d0e4-63a8-4724-af18-6ec342a15e03.gif)" width="720" height="1080"/>
+<img src="https://user-images.githubusercontent.com/94803483/235258026-3237d0e4-63a8-4724-af18-6ec342a15e03.gif" width="720" height="1080"/>
 
 The main architecture principle for this app is KISS: removing abstractions that only exist "because this is best practice".
 
