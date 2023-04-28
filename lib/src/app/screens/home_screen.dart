@@ -98,16 +98,16 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              _recentlyCubit.state.recently.isNotEmpty ?
               BlocBuilder<RecentlyCubit, RecentlyState>(
-                // buildWhen: (previous, current) => previous == current,
                 bloc: _recentlyCubit,
-                builder: (context, state) => RecentlyWidget(
+                builder: (context, state) => 
+                state.recently.isNotEmpty ?
+                RecentlyWidget(
                   weatherBloc: _weatherBloc,
                   recentlyCubit: _recentlyCubit,
                   recently: state.recently,
-                ),
-              ) : Config.emptyWidget,
+                ) : Config.emptyWidget,
+              ),
               SizedBox(
                 height: Config.padding * 1.5,
               ),
