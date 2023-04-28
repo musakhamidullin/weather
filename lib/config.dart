@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 class Config {
 
+  static const String recentlyNameBox = 'recently';
+
+  //empty widget
+  static const Widget emptyWidget = SizedBox.shrink();
+
   //background icon color
   static const Color backgroundIconColor = Colors.white38;
 
@@ -20,7 +25,7 @@ class Config {
 
 
   // text style
-  static const double normalSize = 16, bigSize = 32;
+  static const double normalSize = 16, preBigSize = 26, bigSize = 32;
   static const Color textColor = Colors.white54;
 
 

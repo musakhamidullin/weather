@@ -29,7 +29,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
 
     _size = MediaQuery.of(context).size;
 
-    Future.delayed(const Duration(milliseconds: 250)).then((value) {
+    Future.delayed(const Duration(milliseconds: 350)).then((value) {
       setState(() {
         _opacity = 1;
       });

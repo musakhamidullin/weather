@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
 import '../../../../../config.dart';
 
 // ignore: must_be_immutable
 class SearchWidget extends StatelessWidget {
-  SearchWidget({super.key, required this.textEditingController});
+  SearchWidget({super.key, required this.textEditingController, required this.onChanged, required this.onSubmitted});
 
   late final TextEditingController textEditingController;
+
+  final Function(String value) onChanged;
+  final Function(String value) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +31,8 @@ class SearchWidget extends StatelessWidget {
               padding: const EdgeInsets.only(
                   right: Config.padding, top: Config.padding / 8),
               child: TextField(
-                onChanged: (value) => context
-                    .read<WeatherBloc>()
-                    .add(WeatherEvent.outPutToScreen(value: value, name: textEditingController.text)),
-                onSubmitted:
-                (value) => value.isNotEmpty ?
-                 context
-                    .read<WeatherBloc>()
-                    .add(WeatherEvent.findPlace(value: value)) 
-                    : null,
+                onChanged: onChanged,
+                onSubmitted: onSubmitted,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.zero,

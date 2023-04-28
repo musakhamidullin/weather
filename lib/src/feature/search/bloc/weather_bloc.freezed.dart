@@ -19,7 +19,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -28,7 +28,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -37,7 +37,7 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -129,7 +129,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -141,7 +141,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -153,7 +153,7 @@ class _$_Load implements _Load {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -216,7 +216,7 @@ abstract class _$$_OutPutToScreenCopyWith<$Res> {
           _$_OutPutToScreen value, $Res Function(_$_OutPutToScreen) then) =
       __$$_OutPutToScreenCopyWithImpl<$Res>;
   @useResult
-  $Res call({String value, String name});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -230,14 +230,9 @@ class __$$_OutPutToScreenCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
     Object? name = null,
   }) {
     return _then(_$_OutPutToScreen(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -249,16 +244,14 @@ class __$$_OutPutToScreenCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_OutPutToScreen implements _OutPutToScreen {
-  const _$_OutPutToScreen({required this.value, required this.name});
+  const _$_OutPutToScreen({required this.name});
 
-  @override
-  final String value;
   @override
   final String name;
 
   @override
   String toString() {
-    return 'WeatherEvent.outPutToScreen(value: $value, name: $name)';
+    return 'WeatherEvent.outPutToScreen(name: $name)';
   }
 
   @override
@@ -266,12 +259,11 @@ class _$_OutPutToScreen implements _OutPutToScreen {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OutPutToScreen &&
-            (identical(other.value, value) || other.value == value) &&
             (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value, name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -283,38 +275,38 @@ class _$_OutPutToScreen implements _OutPutToScreen {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
   }) {
-    return outPutToScreen(value, name);
+    return outPutToScreen(name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
   }) {
-    return outPutToScreen?.call(value, name);
+    return outPutToScreen?.call(name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
     if (outPutToScreen != null) {
-      return outPutToScreen(value, name);
+      return outPutToScreen(name);
     }
     return orElse();
   }
@@ -361,11 +353,9 @@ class _$_OutPutToScreen implements _OutPutToScreen {
 }
 
 abstract class _OutPutToScreen implements WeatherEvent {
-  const factory _OutPutToScreen(
-      {required final String value,
-      required final String name}) = _$_OutPutToScreen;
+  const factory _OutPutToScreen({required final String name}) =
+      _$_OutPutToScreen;
 
-  String get value;
   String get name;
   @JsonKey(ignore: true)
   _$$_OutPutToScreenCopyWith<_$_OutPutToScreen> get copyWith =>
@@ -437,7 +427,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -449,7 +439,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -461,7 +451,7 @@ class _$_FindPlace implements _FindPlace {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -561,7 +551,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -573,7 +563,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -585,7 +575,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
@@ -680,7 +670,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String value, String name) outPutToScreen,
+    required TResult Function(String name) outPutToScreen,
     required TResult Function(String value) findPlace,
     required TResult Function() failure,
     required TResult Function() refresh,
@@ -692,7 +682,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String value, String name)? outPutToScreen,
+    TResult? Function(String name)? outPutToScreen,
     TResult? Function(String value)? findPlace,
     TResult? Function()? failure,
     TResult? Function()? refresh,
@@ -704,7 +694,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String value, String name)? outPutToScreen,
+    TResult Function(String name)? outPutToScreen,
     TResult Function(String value)? findPlace,
     TResult Function()? failure,
     TResult Function()? refresh,
