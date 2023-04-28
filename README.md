@@ -18,6 +18,7 @@ Packages:
   json_serializable: ^6.6.1\
   auto_route_generator: ^6.2.0
 
+Icons parsed by api 😎😁(by cached_network_image package), therefore import of assets(icons) was useless
   
 Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
