@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 class Config {
 
+  static const String recentlyNameBox = 'recently';
+
+  //empty widget
+  static const Widget emptyWidget = SizedBox.shrink();
+
   //background icon color
   static const Color backgroundIconColor = Colors.white38;
 

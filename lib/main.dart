@@ -1,16 +1,18 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
 import 'package:provider/provider.dart';
+import 'package:weather/src/feature/recently/model/recently.dart';
 import 'package:weather/src/core/route/router.dart';
-import 'package:weather/src/feature/search/bloc/weather_bloc.dart';
-import 'package:weather/src/feature/search/repository/search_repository.dart';
 
-import 'src/app/screens/home_screen.dart';
-
-void main() {
+import 'config.dart';
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Hive.initFlutter();
+  await Hive.openBox<String>(Config.recentlyNameBox);
+  
   /// Disable screen rotation
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -28,27 +30,15 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  late final SearchRepository _searchRepository;
-  late final WeatherBloc _weatherBloc;
-
+  final Recently _recently = Recently()..initHive();
   final _router = AppRouter();
 
   @override
-  void initState() {
-    super.initState();
-
-    _searchRepository = SearchRepository();
-    _weatherBloc = WeatherBloc(searchRepository: _searchRepository);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Provider<WeatherBloc>(
-      create: (_) => _weatherBloc,
+    return Provider<Recently>(
+      create: (_) => _recently,
       child: MaterialApp.router(
-        theme: ThemeData.dark(
-          useMaterial3: true
-        ),
+        theme: ThemeData.dark(useMaterial3: true),
         routerConfig: _router.config(),
       ),
     );

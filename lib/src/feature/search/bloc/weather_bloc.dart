@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:weather/src/core/models/weather_data.dart';
+import 'package:weather/src/feature/recently/model/recently.dart';
 import 'package:weather/src/feature/search/repository/search_repository.dart';
 
 import '../../../core/models/weather_data_forecast.dart';
@@ -30,7 +31,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(state.copyWith(
         status: WeatherStatus.success,
         data: weather,
+        name: event.value
       ));
+
     } catch (e) {
       emit(state.copyWith(status: WeatherStatus.failure));
     }
@@ -38,6 +41,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   Future<void> _outPutToScreen(
       _OutPutToScreen event, Emitter<WeatherState> emit) async {
-    emit(state.copyWith(name: event.value, status: WeatherStatus.searching));
+    emit(state.copyWith(name: event.name, status: WeatherStatus.searching));
   }
 }
