@@ -1,6 +1,6 @@
 # Weather Flutter Application ⛅
 
-Usage example attached on video file 😉
+Usage example attached on gif file 😉
 
 Packages: 
   
@@ -23,3 +23,4 @@ Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
 The main architecture principle for this app is KISS: removing abstractions that only exist "because this is best practice".
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/94803483/235258026-3237d0e4-63a8-4724-af18-6ec342a15e03.gif)
