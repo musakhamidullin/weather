@@ -25,3 +25,6 @@ Used Modular Architecture by https://github.com/ookami-kb/my_tmdb
 
 The main architecture principle for this app is KISS: removing abstractions that only exist "because this is best practice".
 
+Apk attached 😉😊, neccesary unzip! 
+
+[app-release.zip](https://github.com/musakhamidullin/weather/files/11357469/app-release.zip)
